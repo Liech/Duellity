@@ -26,7 +26,6 @@ public class MagneticForce : MonoBehaviour {
     }
   }
 
-
   private void OnDrawGizmos() {
     if(DrawGizmo) {
       Gizmos.DrawWireSphere(transform.position, MaxRange);

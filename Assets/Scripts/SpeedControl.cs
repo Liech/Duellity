@@ -27,4 +27,14 @@ public class SpeedControl : MonoBehaviour
         body.velocity=body.velocity.normalized*MinSpeed;
     }
   }
+
+  private void OnDrawGizmos() {
+    if(!body)
+      return;
+    float speed = body.velocity.magnitude;
+    if(Mathf.Abs(speed-MaxSpeed)<1e-4) {
+      Gizmos.color=new Color(255, 255, 0);
+      Gizmos.DrawCube(transform.position, new Vector3(0.3f, 0.3f, 1.1f));
+    }
+  }
 }

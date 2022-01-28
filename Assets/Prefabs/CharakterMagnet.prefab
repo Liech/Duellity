@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 6138317538752993382}
   - component: {fileID: 6138317538752993383}
   - component: {fileID: 6138317538752993376}
-  - component: {fileID: 6138317538752993377}
   - component: {fileID: 6138317538752993378}
   - component: {fileID: 6138317538752993381}
   - component: {fileID: 6138317538752993387}
   - component: {fileID: 6138317538752993380}
   - component: {fileID: 6138317538752993386}
+  - component: {fileID: 6046253891983778893}
+  - component: {fileID: -6620620516012665292}
   m_Layer: 0
   m_Name: CharakterMagnet
   m_TagString: Untagged
@@ -87,19 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6138317538752993377
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6138317538752993379}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6138317538752993378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,7 +107,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6138317538752993379}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c10601a3ccaf774fa26dcb33cb0a8a2, type: 3}
   m_Name: 
@@ -190,3 +178,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd5cbd4f169a1994c929d7b16080cbe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &6046253891983778893
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6138317538752993379}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &-6620620516012665292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6138317538752993379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc58c7b798d57a04c9b960b0c65d1a68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownDuration: 2
+  activationKey: 101
+  range: 2.99
+  impulseFactor: 1
+  impulseAdd: 0.5
+  reflectPercentage: 0.1
+  directPercentage: 0.9
