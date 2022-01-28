@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
@@ -7,6 +5,9 @@ public class PlayerBehavior : MonoBehaviour
     public CharacterController CharacterController;
     
     public float speed = 6.0f;
+    public float turnSmoothTime = 0.1f;
+
+    private float turnSmoothVelocity;
 
     // Update is called once per frame
     void Update()
@@ -24,7 +25,9 @@ public class PlayerBehavior : MonoBehaviour
     private void MovePlayer(Vector3 direction)
     {
         float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+        var smoothedAngle =
+            Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+        transform.rotation = Quaternion.Euler(0f, smoothedAngle, 0f);
         CharacterController.Move(direction * speed * Time.deltaTime);
     }
 }
