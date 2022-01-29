@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 900911992734925363}
   - component: {fileID: 6619514148310115847}
   - component: {fileID: 6772597167456910180}
+  - component: {fileID: 6133489436781462504}
   m_Layer: 0
   m_Name: MagnetKugel
   m_TagString: Untagged
@@ -126,7 +127,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.71
 --- !u!114 &900911992734925371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +203,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad1d7781fa3f36b4c91ed4ab3e1e37d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6133489436781462504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900911992734925372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 852536d33b3f63f4dae669ae5e250275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6394581594778856776

@@ -27,6 +27,7 @@ public class MagnetImpulse : MonoBehaviour
   }
 
   void impulse() {
+    SoundSingleton.instance.playCollide();
     foreach(var obj in GameObject.FindObjectsOfType<AffectedFromMagnetic>()) {
       var body=obj.GetComponent<Rigidbody2D>();
       var diff = obj.transform.position - transform.position;
