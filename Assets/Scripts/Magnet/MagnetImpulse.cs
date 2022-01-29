@@ -23,6 +23,10 @@ public class MagnetImpulse : MonoBehaviour
     if(Input.GetKeyDown(KeyCode.E) && ready) {
       StartCoroutine(cooldown());
       impulse();
+      if (GetComponent<Magnetic>().MagnetType == MagneticType.Blue)
+        Instantiate(MagnetSingleton.instance.ImpulseEffectBlue, transform.position, transform.rotation);
+      else
+        Instantiate(MagnetSingleton.instance.ImpulseEffectRed, transform.position, transform.rotation);
     }
   }
 

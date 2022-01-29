@@ -47,6 +47,8 @@ MonoBehaviour:
   RedMaterial: {fileID: 2100000, guid: 99d1ed9144d6d8a4c94e85fff799122f, type: 2}
   BlueMaterial: {fileID: 2100000, guid: d523c8162f625404e957b603fd4a1da2, type: 2}
   GotHitMaterial: {fileID: 2100000, guid: e589cd65c30e14448a2c9bcfbfa50e61, type: 2}
+  ImpulseEffectRed: {fileID: 8273908234702583813, guid: 4942abd89b866f345854e7a5e4bc44f6, type: 3}
+  ImpulseEffectBlue: {fileID: 8273908234702583813, guid: bfe425b87a4fbeb4ba65978908374d4d, type: 3}
 --- !u!114 &1031416858006733612
 MonoBehaviour:
   m_ObjectHideFlags: 0
