@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RedMaterial: {fileID: 2100000, guid: 99d1ed9144d6d8a4c94e85fff799122f, type: 2}
   BlueMaterial: {fileID: 2100000, guid: d523c8162f625404e957b603fd4a1da2, type: 2}
+  GotHitMaterial: {fileID: 2100000, guid: e589cd65c30e14448a2c9bcfbfa50e61, type: 2}
 --- !u!114 &1031416858006733612
 MonoBehaviour:
   m_ObjectHideFlags: 0

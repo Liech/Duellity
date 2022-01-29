@@ -7,9 +7,9 @@ public class MagnetSingleton : MonoBehaviour {
 
   public Material RedMaterial;
   public Material BlueMaterial;
+  public Material GotHitMaterial;
 
   private void Start() {
     instance=this;
   }
-
 }
