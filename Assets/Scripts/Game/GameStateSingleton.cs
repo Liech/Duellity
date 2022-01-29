@@ -14,9 +14,9 @@ public class GameStateSingleton : MonoBehaviour {
   private void Awake() {
     instance=this;
   }
+
   private void Start() {
     instance=this;
-    Players.Add(new PlayerInfo());
     if(GUI) {
       GUI=Instantiate(GUI);
     }
@@ -25,12 +25,16 @@ public class GameStateSingleton : MonoBehaviour {
   private void Update() {
     if(GUI)
       for(int i = 0;i<Players.Count;i++) {
-        GUI.transform.GetChild(i).Find("HitCount").GetComponent<Text>().text="Hits: "+Players[0].Deaths.ToString();
-
-        var rect = GUI.transform.GetChild(i).Find("EnergybarBackground").Find("EnergybarCurrent").GetComponent<RectTransform>();
-        var background = GUI.transform.GetChild(i).Find("EnergybarBackground").GetComponent<RectTransform>();
-        float value = 0.5f;
-        rect.sizeDelta=new Vector2(background.sizeDelta.x * value, background.sizeDelta.y);        
+        //GUI.transform.GetChild(i).Find("HitCount").GetComponent<Text>().text="Hits: "+Players[0].Deaths.ToString();
+        //
+        //var rect = GUI.transform.GetChild(i).Find("EnergybarBackground").Find("EnergybarCurrent").GetComponent<RectTransform>();
+        //var background = GUI.transform.GetChild(i).Find("EnergybarBackground").GetComponent<RectTransform>();
+        //float value = 0.5f;
+        //rect.sizeDelta=new Vector2(background.sizeDelta.x * value, background.sizeDelta.y);        
       }
+  }
+
+  public void addPlayer(PlayerInfo info) {
+    Players.Add(info);
   }
 }

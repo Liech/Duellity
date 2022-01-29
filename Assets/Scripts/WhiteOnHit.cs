@@ -10,7 +10,8 @@ public class WhiteOnHit : MonoBehaviour {
   }
 
   private void OnCollisionEnter2D(Collision2D collision) {
-    StartCoroutine(cooldown());
+    if (collision.collider.gameObject.GetComponent<IsDangerous>())
+      StartCoroutine(cooldown());
   }
 
   IEnumerator cooldown() {

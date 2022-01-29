@@ -18,9 +18,9 @@ public class Respawner : MonoBehaviour
       float x = poly.bounds.min.x + Random.value * poly.bounds.size.x;
       float y = poly.bounds.min.y + Random.value * poly.bounds.size.y;
       Vector2 point = new Vector2(x,y);
-      if(poly.OverlapPoint(new Vector2(x, y))) {
-        respawnHere(point);
-        return;
+      if(poly.OverlapPoint(point)) {
+          respawnHere(point);
+          return;
       }
     }
   }
