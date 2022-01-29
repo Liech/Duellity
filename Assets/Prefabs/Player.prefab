@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5337742164814984845}
   - component: {fileID: 7934220328329234011}
-  - component: {fileID: 5312967020203249800}
   - component: {fileID: 5870883421750186224}
   - component: {fileID: 864149579322231189}
   m_Layer: 0
@@ -47,27 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07ebe5fd5aafb843bf574d166fc0d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 4644143373309022175}
   speed: 300
   turnSmoothTime: 0.1
---- !u!95 &5312967020203249800
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3468647396130700269}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 04dd473ab3189d34b9b8e024b2d92878, type: 3}
-  m_Controller: {fileID: 9100000, guid: c12adcae411611949b9a51fe4d5095a3, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &5870883421750186224
 Rigidbody2D:
   serializedVersion: 4
@@ -169,5 +150,10 @@ PrefabInstance:
 --- !u!4 &1626752872277104037 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 04dd473ab3189d34b9b8e024b2d92878, type: 3}
+  m_PrefabInstance: {fileID: 1232256092601397838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4644143373309022175 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 04dd473ab3189d34b9b8e024b2d92878, type: 3}
   m_PrefabInstance: {fileID: 1232256092601397838}
   m_PrefabAsset: {fileID: 0}
