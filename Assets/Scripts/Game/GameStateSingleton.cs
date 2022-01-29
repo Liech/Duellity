@@ -8,8 +8,12 @@ public class GameStateSingleton : MonoBehaviour {
 
   public List<PlayerInfo> Players = new List<PlayerInfo>();
   public GameObject       GUI = null;
+  public GameObject       RespawnArea;
 
-  
+
+  private void Awake() {
+    instance=this;
+  }
   private void Start() {
     instance=this;
     Players.Add(new PlayerInfo());

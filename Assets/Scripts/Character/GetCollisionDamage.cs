@@ -12,6 +12,8 @@ public class GetCollisionDamage : MonoBehaviour
       GameStateSingleton.instance.Players[player].Deaths++;
       if(SoundSingleton.instance.PlayerHit)
         SoundSingleton.instance.playPlayerHit();
+      if(GetComponent<Respawner>())
+        GetComponent<Respawner>().respawn();
     }
   }
 }
