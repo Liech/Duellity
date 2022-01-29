@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6046253891983778893}
   - component: {fileID: -6620620516012665292}
   - component: {fileID: 2174941536467537220}
+  - component: {fileID: 8716569731641462765}
   m_Layer: 0
   m_Name: CharakterMagnet
   m_TagString: Untagged
@@ -177,6 +178,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whiteDuration: 0.1
+--- !u!114 &8716569731641462765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6138317538752993379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92fa9a090f273c438636606c1db4381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: 0
 --- !u!1001 &4339949262811004507
 PrefabInstance:
   m_ObjectHideFlags: 0
