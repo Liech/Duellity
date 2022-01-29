@@ -1,8 +1,9 @@
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerBehavior : MonoBehaviour
 {
-    public CharacterController characterController;
+    private CharacterController _characterController;
 
     public float speed = 8.0f;
     public float turnSmoothTime = 0.1f;
@@ -13,6 +14,7 @@ public class PlayerBehavior : MonoBehaviour
 
     private void Awake()
     {
+        _characterController = GetComponent<CharacterController>();
         _controls = new MasterInput();
         _controls.Player.Move.performed += context => _playerInputDirection = context.ReadValue<Vector2>();
         _controls.Player.Move.canceled += context => _playerInputDirection = context.ReadValue<Vector2>();
@@ -32,7 +34,7 @@ public class PlayerBehavior : MonoBehaviour
             var smoothedAngle =
                 Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, smoothedAngle, 0f);
-            characterController.Move(direction * speed * Time.deltaTime);
+            _characterController.Move(direction * speed * Time.deltaTime);
         }
     }
 
