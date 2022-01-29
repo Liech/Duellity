@@ -7,25 +7,26 @@ public class PlayerBehavior : MonoBehaviour
     public float speed = 8.0f;
     public float turnSmoothTime = 0.1f;
 
-    private MasterInputs _controls;
-    private Vector2 _playerInput;
+    private MasterInput _controls;
+    private Vector2 _playerInputDirection;
     private float _turnSmoothVelocity;
 
     private void Awake()
     {
-        _controls = new MasterInputs();
-        _controls.Player.Movement.performed += context => _playerInput = context.ReadValue<Vector2>();
+        _controls = new MasterInput();
+        _controls.Player.Move.performed += context => _playerInputDirection = context.ReadValue<Vector2>();
+        _controls.Player.Move.canceled += context => _playerInputDirection = context.ReadValue<Vector2>();
     }
 
     private void FixedUpdate()
     {
-        MovePlayer(_playerInput);
+        MovePlayer(_playerInputDirection);
     }
 
     private void MovePlayer(Vector2 movementDirection)
     {
         var direction = new Vector3(movementDirection.x, 0f, movementDirection.y).normalized;
-        if (direction.magnitude >= 0.1f)
+        if (direction.magnitude >= 0.05f)
         {
             var targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
             var smoothedAngle =
