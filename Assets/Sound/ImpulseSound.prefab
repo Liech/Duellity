@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7369144467272246560
+--- !u!1 &8246488357330122656
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,96 +8,63 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5952897025049697310}
-  - component: {fileID: 298975865985569196}
-  - component: {fileID: 1031416858006733612}
-  - component: {fileID: 4244733913835762902}
-  - component: {fileID: 2478181209954575416}
+  - component: {fileID: 7788250238953165104}
+  - component: {fileID: 7738310839395670286}
+  - component: {fileID: 4614908005954831681}
   m_Layer: 0
-  m_Name: Singleton
+  m_Name: ImpulseSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5952897025049697310
+--- !u!4 &7788250238953165104
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7369144467272246560}
+  m_GameObject: {fileID: 8246488357330122656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.8505983, y: 1.4801859, z: -1.113009}
+  m_LocalPosition: {x: -0.23244485, y: -1.9995241, z: 0.11466101}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &298975865985569196
+--- !u!114 &7738310839395670286
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7369144467272246560}
+  m_GameObject: {fileID: 8246488357330122656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5ff1c32ad40e4448bd1e293562d7558, type: 3}
+  m_Script: {fileID: 11500000, guid: c4ef591f42553594d818345e4d2328f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RedMaterial: {fileID: 2100000, guid: 99d1ed9144d6d8a4c94e85fff799122f, type: 2}
-  BlueMaterial: {fileID: 2100000, guid: d523c8162f625404e957b603fd4a1da2, type: 2}
-  GotHitMaterial: {fileID: 2100000, guid: e589cd65c30e14448a2c9bcfbfa50e61, type: 2}
-  ImpulseEffectRed: {fileID: 8273908234702583813, guid: 4942abd89b866f345854e7a5e4bc44f6, type: 3}
-  ImpulseEffectBlue: {fileID: 8273908234702583813, guid: bfe425b87a4fbeb4ba65978908374d4d, type: 3}
---- !u!114 &1031416858006733612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7369144467272246560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fa7ba7cc96028d4c8d2aaa8642041df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Collide: {fileID: 8246488357330122656, guid: e152c64c2702d7b4a860bbc04dfdc81a, type: 3}
-  PlayerHit: {fileID: 8246488357330122656, guid: aebd36aabc3f1ce409a34fbe8bcc3b88, type: 3}
-  Impulse: {fileID: 8246488357330122656, guid: ed20d81167a1c494697fa630c94a0f88, type: 3}
---- !u!114 &4244733913835762902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7369144467272246560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9842120c4e21dd94d98ab252eb46ce4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GUI: {fileID: 2010995430609748774, guid: 0f584d5840b78004a9a2ba6ab7a1747c, type: 3}
---- !u!82 &2478181209954575416
+  sounds:
+  - {fileID: 8300000, guid: 8ae18c3655c0411489abfa823d5fd01c, type: 3}
+--- !u!82 &4614908005954831681
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7369144467272246560}
+  m_GameObject: {fileID: 8246488357330122656}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 024a75283690a684882facc1d20fbaab, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.174
+  m_Volume: 0.427
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 100
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

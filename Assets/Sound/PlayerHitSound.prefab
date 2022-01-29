@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7738310839395670286}
   - component: {fileID: 4614908005954831681}
   m_Layer: 0
-  m_Name: Collision
+  m_Name: PlayerHitSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,14 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - {fileID: 8300000, guid: 3febefc487297594c8c3da65c61e263f, type: 3}
-  - {fileID: 8300000, guid: b5269a1b1147a214588f2195d1ae5a7c, type: 3}
-  - {fileID: 8300000, guid: 7d577ee6ec440c14582a35797cfb45cf, type: 3}
-  - {fileID: 8300000, guid: f8ccf0ceba6c656458f2fe38255ad070, type: 3}
-  - {fileID: 8300000, guid: 61f388380497f0f42ba55752fd901682, type: 3}
-  - {fileID: 8300000, guid: aaffa35e661b23947912f7d94ba33e5c, type: 3}
-  - {fileID: 8300000, guid: c7597490cfbce3847b66f187f69c5601, type: 3}
-  - {fileID: 8300000, guid: 3febefc487297594c8c3da65c61e263f, type: 3}
+  - {fileID: 8300000, guid: 5868f9d29d7f03c40a01ed56a8a80284, type: 3}
+  - {fileID: 8300000, guid: e4c5515d1b81b4a4ea71128970ed44fa, type: 3}
+  - {fileID: 8300000, guid: 5684c33e5f010934db70fafc65ccdbea, type: 3}
+  - {fileID: 8300000, guid: 13be6b287465a6749acd177593e352c2, type: 3}
+  - {fileID: 8300000, guid: 7aecce66d80429144a32255bd2b5b1f2, type: 3}
+  - {fileID: 8300000, guid: fdf4e14b728491243bb59e4c8e7aa0b0, type: 3}
+  - {fileID: 8300000, guid: e4ca9404970d0b84c920ac85e601ec9c, type: 3}
 --- !u!82 &4614908005954831681
 AudioSource:
   m_ObjectHideFlags: 0
@@ -65,7 +64,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.479
   m_Pitch: 1
   Loop: 0
   Mute: 0
