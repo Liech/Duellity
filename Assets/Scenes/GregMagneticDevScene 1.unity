@@ -526,6 +526,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 864149579322231189, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
+      propertyPath: m_Radius
+      value: 0.5311346
+      objectReference: {fileID: 0}
+    - target: {fileID: 864149579322231189, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3468647396130700269, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -576,11 +584,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5870883421750186224, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
       propertyPath: m_Mass
-      value: 0.7853982
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5870883421750186224, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
       propertyPath: m_BodyType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5870883421750186224, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
       propertyPath: m_Simulated
@@ -588,7 +596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5870883421750186224, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
       propertyPath: m_LinearDrag
-      value: 0.05
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5870883421750186224, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
       propertyPath: m_Constraints
@@ -596,11 +604,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5870883421750186224, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
       propertyPath: m_UseAutoMass
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5870883421750186224, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
       propertyPath: m_GravityScale
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870883421750186224, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7934220328329234011, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
       propertyPath: speed
