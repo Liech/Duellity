@@ -34,7 +34,7 @@ public class MagnetImpulse : MonoBehaviour
         continue;
 
       float magneticDir = (GetComponent<Magnetic>().MagnetType==obj.GetComponent<Magnetic>().MagnetType)?1:-1;
-      Vector2 reflect = Vector2.Reflect(obj.GetComponent<Rigidbody2D>().velocity,-diff.normalized);
+      Vector2 reflect = Vector2.Reflect(obj.GetComponent<Rigidbody2D>().velocity,-diff.normalized).normalized;
       Vector2 dir     = diff.normalized;
       float speed = body.velocity.magnitude * impulseFactor + impulseAdd;
       var newVel = reflect * reflectPercentage * speed + directPercentage * speed * dir;
