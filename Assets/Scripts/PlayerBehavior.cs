@@ -2,32 +2,46 @@ using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
 {
-    public CharacterController CharacterController;
-    
-    public float speed = 6.0f;
+    public CharacterController characterController;
+
+    public float speed = 8.0f;
     public float turnSmoothTime = 0.1f;
 
-    private float turnSmoothVelocity;
+    private MasterInputs _controls;
+    private Vector2 _playerInput;
+    private float _turnSmoothVelocity;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        _controls = new MasterInputs();
+        _controls.Player.Movement.performed += context => _playerInput = context.ReadValue<Vector2>();
+    }
 
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+    private void FixedUpdate()
+    {
+        MovePlayer(_playerInput);
+    }
+
+    private void MovePlayer(Vector2 movementDirection)
+    {
+        var direction = new Vector3(movementDirection.x, 0f, movementDirection.y).normalized;
         if (direction.magnitude >= 0.1f)
         {
-            MovePlayer(direction);
+            var targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+            var smoothedAngle =
+                Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, smoothedAngle, 0f);
+            characterController.Move(direction * speed * Time.deltaTime);
         }
     }
 
-    private void MovePlayer(Vector3 direction)
+    private void OnEnable()
     {
-        float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        var smoothedAngle =
-            Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-        transform.rotation = Quaternion.Euler(0f, smoothedAngle, 0f);
-        CharacterController.Move(direction * speed * Time.deltaTime);
+        _controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _controls.Disable();
     }
 }
