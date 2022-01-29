@@ -36,7 +36,7 @@ public class PlayerBehavior : MonoBehaviour
         var direction = new Vector3(viewCorrectedDirection.x, viewCorrectedDirection.y, 0f).normalized;
         if (direction.magnitude >= 0.05f)
         {
-            var targetAngle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+            var targetAngle = Mathf.Atan2(direction.x, -direction.y) * Mathf.Rad2Deg;
             var smoothedAngle =
                 Mathf.SmoothDampAngle(transform.eulerAngles.z, targetAngle, ref _turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, 0f, smoothedAngle);
