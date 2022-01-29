@@ -20,13 +20,20 @@ public class MagnetImpulse : MonoBehaviour
   }
 
   private void Update() {
-    if(Input.GetKeyDown(KeyCode.E) && ready) {
+    if(Input.GetKeyDown(KeyCode.E)&&ready) {
       StartCoroutine(cooldown());
       impulse();
-      if (GetComponent<Magnetic>().MagnetType == MagneticType.Blue)
-        Instantiate(MagnetSingleton.instance.ImpulseEffectBlue, transform.position, transform.rotation);
+      GameObject g;
+      if(GetComponent<Magnetic>().MagnetType==MagneticType.Blue)
+        g=Instantiate(MagnetSingleton.instance.ImpulseEffectBlue, transform.position, transform.rotation);
       else
-        Instantiate(MagnetSingleton.instance.ImpulseEffectRed, transform.position, transform.rotation);
+        g=Instantiate(MagnetSingleton.instance.ImpulseEffectRed, transform.position, transform.rotation);
+      if(g) {
+        var system = g.GetComponent<ParticleSystem>();
+        var shape = system.sizeOverLifetime;
+        float magicFudgeFactor = (5f/2.43f);
+        shape.sizeMultiplier = range * magicFudgeFactor;
+      }
     }
   }
 
