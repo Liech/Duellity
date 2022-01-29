@@ -6,4 +6,5 @@ public class PlayerInfo
 {
   public uint Deaths = 0;
   public Color clr;
+  public GameObject GUI;
 }
