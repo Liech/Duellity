@@ -575,12 +575,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5870883421750186224, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
+      propertyPath: m_Mass
+      value: 0.7853982
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870883421750186224, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870883421750186224, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
       propertyPath: m_Simulated
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870883421750186224, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5870883421750186224, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
       propertyPath: m_Constraints
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870883421750186224, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870883421750186224, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7934220328329234011, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}
+      propertyPath: speed
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ca101fdb86496d419b3c477e4c2b34a, type: 3}

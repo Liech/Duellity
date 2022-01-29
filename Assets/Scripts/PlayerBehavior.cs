@@ -33,21 +33,27 @@ public class PlayerBehavior : MonoBehaviour
     {
         var viewCorrectedDirection = new Vector2(-movementDirection.x, movementDirection.y);
 
-        var direction = new Vector2(viewCorrectedDirection.x, viewCorrectedDirection.y).normalized;
-        if (direction.magnitude >= 0.05f)
+        var unnormalized = new Vector2(viewCorrectedDirection.x, viewCorrectedDirection.y);
+        var direction = unnormalized.normalized;
+        if (unnormalized.magnitude >= 0.05f)
         {
             var targetAngle = Mathf.Atan2(direction.x, -direction.y) * Mathf.Rad2Deg;
             var smoothedAngle =
                 Mathf.SmoothDampAngle(transform.eulerAngles.z, targetAngle, ref _turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, 0f, smoothedAngle);
             var motion = direction * speed * Time.deltaTime;
-            _riggidRigidbody2D.AddForce(motion);
+            _riggidRigidbody2D.velocity = motion;
+            
 
             var velocityY = Vector3.Dot(motion.normalized, transform.forward);
             var velocityX = Vector3.Dot(motion.normalized, transform.right);
 
             _animator.SetFloat("VelocityY", velocityY, 0.1f, Time.deltaTime);
             _animator.SetFloat("VelocityX", velocityX, 0.1f, Time.deltaTime);
+        }
+        else
+        {
+            _riggidRigidbody2D.velocity = Vector2.zero;
         }
     }
 
