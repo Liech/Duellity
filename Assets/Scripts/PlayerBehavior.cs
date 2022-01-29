@@ -5,7 +5,7 @@ public class PlayerBehavior : MonoBehaviour
 {
     private CharacterController _characterController;
 
-    public float speed = 8.0f;
+    public float speed = 12.0f;
     public float turnSmoothTime = 0.1f;
 
     private MasterInput _controls;
@@ -16,6 +16,7 @@ public class PlayerBehavior : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
         _controls = new MasterInput();
+        _controls.Player.Move.started += context => _playerInputDirection = context.ReadValue<Vector2>();
         _controls.Player.Move.performed += context => _playerInputDirection = context.ReadValue<Vector2>();
         _controls.Player.Move.canceled += context => _playerInputDirection = context.ReadValue<Vector2>();
     }
