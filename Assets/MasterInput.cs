@@ -35,6 +35,24 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ToggleMagnet"",
+                    ""type"": ""Button"",
+                    ""id"": ""d37e2d38-05db-43c1-98c4-ffa6a1c679d1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Impulse"",
+                    ""type"": ""Button"",
+                    ""id"": ""c9634d3a-302a-4ccb-aa69-ea2f5a297338"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -167,6 +185,50 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Joystick"",
                     ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""87fffca0-7d86-4b98-92dd-2184fb215a54"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ToggleMagnet"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dba3c9f8-c3d1-4e63-8dda-500b2bd295f4"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ToggleMagnet"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f45127a1-6db1-4db8-a86c-e2c4ad4f7848"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Impulse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""107766cd-6759-4e0e-ac4d-0d86c2624265"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Impulse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -560,6 +622,8 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_ToggleMagnet = m_Player.FindAction("ToggleMagnet", throwIfNotFound: true);
+        m_Player_Impulse = m_Player.FindAction("Impulse", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -625,11 +689,15 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_ToggleMagnet;
+    private readonly InputAction m_Player_Impulse;
     public struct PlayerActions
     {
         private @MasterInput m_Wrapper;
         public PlayerActions(@MasterInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @ToggleMagnet => m_Wrapper.m_Player_ToggleMagnet;
+        public InputAction @Impulse => m_Wrapper.m_Player_Impulse;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -642,6 +710,12 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @ToggleMagnet.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleMagnet;
+                @ToggleMagnet.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleMagnet;
+                @ToggleMagnet.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleMagnet;
+                @Impulse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnImpulse;
+                @Impulse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnImpulse;
+                @Impulse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnImpulse;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -649,6 +723,12 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @ToggleMagnet.started += instance.OnToggleMagnet;
+                @ToggleMagnet.performed += instance.OnToggleMagnet;
+                @ToggleMagnet.canceled += instance.OnToggleMagnet;
+                @Impulse.started += instance.OnImpulse;
+                @Impulse.performed += instance.OnImpulse;
+                @Impulse.canceled += instance.OnImpulse;
             }
         }
     }
@@ -750,6 +830,8 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnToggleMagnet(InputAction.CallbackContext context);
+        void OnImpulse(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

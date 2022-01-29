@@ -56,9 +56,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c10601a3ccaf774fa26dcb33cb0a8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStrength: 9.82
+  MaxStrength: 12.46
   MinStrength: 0.65
-  MaxRange: 7.61
+  MaxRange: 9.53
   DrawGizmo: 1
   curve:
     serializedVersion: 2
@@ -150,11 +150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc58c7b798d57a04c9b960b0c65d1a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownDuration: 2
+  cooldownDuration: 0.3
   activationKey: 101
-  range: 4.16
-  impulseFactor: 1
-  impulseAdd: 0.5
+  range: 6.19
+  impulseFactor: 2
+  impulseAdd: 40
   reflectPercentage: 0.1
   directPercentage: 0.9
 --- !u!114 &2174941536467537220
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07ebe5fd5aafb843bf574d166fc0d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 300
+  speed: 600
   turnSmoothTime: 0.1
 --- !u!114 &5151123094510315280
 MonoBehaviour:
@@ -293,6 +293,38 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0cb0d0ec-64bb-44a5-a4d0-37065a8886e2
     m_ActionName: UI/Cancel[/Keyboard/escape,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6138317538752993380}
+        m_TargetAssemblyTypeName: ToggleMagneticOnKey, Assembly-CSharp
+        m_MethodName: ToggleMagnet
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d37e2d38-05db-43c1-98c4-ffa6a1c679d1
+    m_ActionName: Player/ToggleMagnet[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -6620620516012665292}
+        m_TargetAssemblyTypeName: MagnetImpulse, Assembly-CSharp
+        m_MethodName: FireImpulse
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c9634d3a-302a-4ccb-aa69-ea2f5a297338
+    m_ActionName: Player/Impulse[/Keyboard/e,/XInputControllerWindows/buttonEast,/XInputControllerWindows1/buttonEast]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

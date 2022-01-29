@@ -36,6 +36,7 @@ public class PlayerBehavior : MonoBehaviour
 
   private void MovePlayer(Vector2 movementDirection)
     {
+    GetComponent<Rigidbody2D>().angularVelocity=0;
         var viewCorrectedDirection = new Vector2(-movementDirection.x, movementDirection.y);
 
         var unnormalized = new Vector2(viewCorrectedDirection.x, viewCorrectedDirection.y);
