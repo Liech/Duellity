@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
@@ -10,7 +11,7 @@ public class PlayerBehavior : MonoBehaviour
     public float speed = 12.0f;
     public float turnSmoothTime = 0.1f;
 
-    private MasterInput _controls;
+    //private MasterInput _controls;
     private Vector2 _playerInputDirection;
     private float _turnSmoothVelocity;
 
@@ -18,10 +19,10 @@ public class PlayerBehavior : MonoBehaviour
     {
         _riggidRigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        _controls = new MasterInput();
-        _controls.Player.Move.started += context => _playerInputDirection = context.ReadValue<Vector2>();
-        _controls.Player.Move.performed += context => _playerInputDirection = context.ReadValue<Vector2>();
-        _controls.Player.Move.canceled += context => _playerInputDirection = context.ReadValue<Vector2>();
+        //_controls = new MasterInput();
+        //_controls.Player.Move.started += context => _playerInputDirection = context.ReadValue<Vector2>();
+        //_controls.Player.Move.performed += context => _playerInputDirection = context.ReadValue<Vector2>();
+        //_controls.Player.Move.canceled += context => _playerInputDirection = context.ReadValue<Vector2>();
     }
 
     private void FixedUpdate()
@@ -29,7 +30,11 @@ public class PlayerBehavior : MonoBehaviour
         MovePlayer(_playerInputDirection);
     }
 
-    private void MovePlayer(Vector2 movementDirection)
+  public void OnMove(UnityEngine.InputSystem.InputAction.CallbackContext ctx) {
+    _playerInputDirection = ctx.ReadValue<Vector2>();
+  }
+
+  private void MovePlayer(Vector2 movementDirection)
     {
         var viewCorrectedDirection = new Vector2(-movementDirection.x, movementDirection.y);
 
@@ -59,11 +64,11 @@ public class PlayerBehavior : MonoBehaviour
 
     private void OnEnable()
     {
-        _controls.Enable();
+        //_controls.Enable();
     }
 
     private void OnDisable()
     {
-        _controls.Disable();
+        //_controls.Disable();
     }
 }
