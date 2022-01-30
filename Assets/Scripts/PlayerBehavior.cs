@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerBehavior : MonoBehaviour
 {
     private Rigidbody2D _riggidRigidbody2D;
-    public Animator _animator;
+    public Animator animator;
 
     public float speed = 12.0f;
     public float turnSmoothTime = 0.1f;
@@ -29,11 +29,11 @@ public class PlayerBehavior : MonoBehaviour
     {
         if (isDashing)
         {
-            _animator.SetBool("dash", true);
+            animator.SetBool("dash", true);
         }
         else
         {
-            _animator.SetBool("dash", false);
+            animator.SetBool("dash", false);
             MovePlayer(_playerInputDirection);
         }
     }
@@ -59,12 +59,12 @@ public class PlayerBehavior : MonoBehaviour
             var motion = direction * speed * Time.deltaTime;
             _riggidRigidbody2D.velocity = motion;
 
-            _animator.SetFloat("velocity", 1f);
+            animator.SetFloat("velocity", 1f);
         }
         else
         {
             _riggidRigidbody2D.velocity = Vector2.zero;
-            _animator.SetFloat("velocity", 0);
+            animator.SetFloat("velocity", 0);
         }
     }
 
