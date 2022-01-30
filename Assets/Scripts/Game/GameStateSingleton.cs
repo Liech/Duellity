@@ -13,7 +13,8 @@ public class GameStateSingleton : MonoBehaviour {
   public GameObject       Ball;
   public List<Mesh>       Models;
   public int              AmountBalls = 8;
- 
+  public List<GameObject> Powerups = new List<GameObject>();
+  public GameObject       SmokeEffect;
 
   private void Awake() {
     instance=this;

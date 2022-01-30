@@ -10,8 +10,16 @@ public class SoundSingleton : MonoBehaviour
   public GameObject PlayerHit;
   public GameObject Impulse;
   public GameObject Hui;
+  public GameObject Katsching;
+  public GameObject Wahhh;
 
 
+  public void playWahhh() {
+    if(Wahhh) Instantiate(Wahhh, transform);
+  }
+  public void playKatsching() {
+    if(Katsching) Instantiate(Katsching, transform);
+  }
   public void playHui() {
     if(PlayerHit) Instantiate(Hui, transform);
   }
