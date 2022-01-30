@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScoreUp : PowerupInstance {
   public override void Apply(GameObject g) {
-    var player = GameStateSingleton.instance.Players[g.GetComponent<PlayerSpawner>().playerNumber];
-    player.Points++;
+    GameStateSingleton.instance.Players[g.GetComponent<PlayerSpawner>().playerNumber].Points++;
+    Debug.Log(GameStateSingleton.instance.Players[g.GetComponent<PlayerSpawner>().playerNumber].Points);
   }
 }

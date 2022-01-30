@@ -15,6 +15,7 @@ public class GameStateSingleton : MonoBehaviour {
   public int              AmountBalls = 8;
   public List<GameObject> Powerups = new List<GameObject>();
   public GameObject       SmokeEffect;
+  public GameObject       SparkEffect;
   public int              MaxAmountPowerups = 2;
   public float            PowerupCooldownMin = 5;
   public float            PowerupCooldownRandom = 3;
@@ -47,11 +48,8 @@ public class GameStateSingleton : MonoBehaviour {
         var ui = Players[i].GUI;
         ui.transform.Find("HitCount").GetComponent<Text>().text="Hits: "+Players[i].Deaths.ToString();
         ui.transform.Find("Score").GetComponent<Text>().text="Score: "+Players[i].Points.ToString();
-
-        var rect = ui.transform.Find("EnergybarBackground").Find("EnergybarCurrent").GetComponent<RectTransform>();
-        var background = ui.transform.Find("EnergybarBackground").GetComponent<RectTransform>();
-        float value = 0.5f;
-        rect.sizeDelta=new Vector2(background.sizeDelta.x * value, background.sizeDelta.y);
+        ui.transform.Find("PlayerName").GetComponent<Text>().text="Player "+(i+1).ToString()+ "   ";
+        Players[i].Character.transform.Find("PlayerName").GetComponent<TextMesh>().text=(i+1).ToString();
       }
     float passed = Time.timeSinceLevelLoad;
     int left = (int)(GameDuration-passed);
@@ -68,6 +66,8 @@ public class GameStateSingleton : MonoBehaviour {
     var newUI = Instantiate(PlayerUI,players);
     info.GUI=newUI;
     newUI.transform.Find("HitCount").GetComponent<UnityEngine.UI.Text>().color=info.clr;
+    newUI.transform.Find("Score").GetComponent<UnityEngine.UI.Text>().color=info.clr;
+    newUI.transform.Find("PlayerName").GetComponent<UnityEngine.UI.Text>().color=info.clr;
     return Players.Count-1;
   }
 
@@ -107,6 +107,26 @@ public class GameStateSingleton : MonoBehaviour {
   }
 
   void declareWinner() {
+    uint bestDeaths = uint.MaxValue;
+    uint bestPoints = 0;
+    PlayerInfo winner = null;
+    int index= -1;
+    for(int i = 0;i <Players.Count;i++) {
+      var p = Players[i];
+      uint points = p.Points;
+      uint deaths = p.Deaths;
+      if (points > bestPoints || (points==bestPoints && bestDeaths > deaths)) {
+        bestDeaths=deaths;
+        bestPoints=points;
+        winner=p;
+        index=i;
+      }
+    }
+
+    if(winner != null) {
+      WinnerText="Player "+(index+1).ToString()+" wins!";
+    }
+    
     UnityEngine.SceneManagement.SceneManager.LoadScene("WinnerScene");
   }
 }

@@ -10,8 +10,9 @@ public class PlayerSpawner : MonoBehaviour {
     var info = new PlayerInfo();
     info.clr=Random.ColorHSV();
     info.clr.a=1;
+    info.Character=gameObject;
     transform.Find("PlayerColorIndication").GetComponent<SpriteRenderer>().color=info.clr;
-    playerNumber = GameStateSingleton.instance.addPlayer(info);
+    playerNumber= GameStateSingleton.instance.addPlayer(info);
     
   }
 

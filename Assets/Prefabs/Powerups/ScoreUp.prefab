@@ -43,8 +43,8 @@ GameObject:
   - component: {fileID: 7280830924344536536}
   - component: {fileID: 7011345059346036250}
   - component: {fileID: 2660119900633223647}
-  - component: {fileID: 5833972238241962028}
   - component: {fileID: 3295749038610852646}
+  - component: {fileID: 6156523294354227479}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -93,7 +93,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 78751b20bbb316441963a9f3c4961bd9, type: 2}
+  - {fileID: 2100000, guid: b4b6f808c2e2bd543b83c9ea03cfdcb4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -131,18 +131,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.28
---- !u!114 &5833972238241962028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7921879389309496555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c641be50e03abb44098ac39b4e300288, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3295749038610852646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,3 +144,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tile: {fileID: 0}
+--- !u!114 &6156523294354227479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7921879389309496555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ca47a230b195648bcdedabeb819399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
