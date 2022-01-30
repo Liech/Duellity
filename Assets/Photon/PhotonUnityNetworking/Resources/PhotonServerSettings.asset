@@ -37,6 +37,12 @@ MonoBehaviour:
   - ClickRpc
   - DestroyRpc
   - RPC_MagnetColor
+  - RPC_FireImpulse
+  - RPC_MagnetToggle
+  - RPC_cooldown
+  - RPC_RespawnPlayer
+  - RPC_UpdateMaterial
+  - RPC_RNGMaterial
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

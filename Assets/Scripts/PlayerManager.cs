@@ -24,6 +24,6 @@ public class PlayerManager : MonoBehaviour
 
     void InstantiatePlayerController()
     {
-        PhotonNetwork.Instantiate(Path.Combine("Photon", "Player"), Vector3.zero, Quaternion.identity);
+        PhotonNetwork.Instantiate(Path.Combine("Photon", "OnlinePlayer"), Vector3.zero, Quaternion.identity);
     }
 }

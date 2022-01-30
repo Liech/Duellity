@@ -7,7 +7,11 @@ using System.IO;
 
 public class GameManagr : MonoBehaviourPunCallbacks
 {
-
+    public Material RedMaterial;
+    public Material BlueMaterial;
+    public Material GotHitMaterial;
+    public GameObject ImpulseEffectRed;
+    public GameObject ImpulseEffectBlue;
     public static GameManagr Instance;
 
     void Awake()
@@ -23,7 +27,7 @@ public class GameManagr : MonoBehaviourPunCallbacks
 
     void Start()
     {
-
+       
     }
 
     public override void OnEnable()

@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
     public GameObject roomJoinButton;
     public GameObject startButton;
     public TMP_Text placeHolderName;
+    public string placeHolderPlayerName;
     private void Awake()
     {
         Instance = this;
@@ -29,6 +30,13 @@ public class MainMenu : MonoBehaviourPunCallbacks
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
+        if (placeHolderName.text == "")
+        {
+            placeHolderName.text = "Player" + Random.Range(0, 9000).ToString("0000");
+
+            placeHolderPlayerName = placeHolderName.text;
+            PhotonNetwork.NickName = placeHolderName.text;
+        }
     }
     public override void OnConnectedToMaster()
     {
@@ -104,10 +112,8 @@ public class MainMenu : MonoBehaviourPunCallbacks
     }
     public override void OnCreatedRoom()
     {
-        if (placeHolderName.text == "")
+        if(playerNameInput.text == "")
         {
-            placeHolderName.text = "Player" + Random.Range(0, 9000).ToString("0000");
-            playerNameInput.text = placeHolderName.text;
             PhotonNetwork.NickName = placeHolderName.text;
         }
         else
@@ -165,16 +171,6 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     public void JoinRoom(RoomInfo info)
     {
-        if (placeHolderName.text == "")
-        {
-            placeHolderName.text = "Player" + Random.Range(0, 9000).ToString("0000");
-            playerNameInput.text = placeHolderName.text;
-            PhotonNetwork.NickName = placeHolderName.text;
-        }
-        else
-        {
-            PhotonNetwork.NickName = playerNameInput.text;
-        }
         PhotonNetwork.JoinRoom(info.Name);
         roomName.text = info.Name;
         //loading screen

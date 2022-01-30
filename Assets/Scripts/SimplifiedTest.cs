@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class SimplifiedTest : MonoBehaviourPunCallbacks,IPunObservable
+public class SimplifiedTest : MonoBehaviourPunCallbacks, IPunObservable
 {
     public float movementX;
     public float movementY;

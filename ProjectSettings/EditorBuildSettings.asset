@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
+  - enabled: 1
+    path: Assets/Scenes/Maik Main Menu.unity
+    guid: 83a025e7dc2942b49829dc5e2548b3fd
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerArena.unity
+    guid: 56c7a4080f2ceee4999b4a3d724481fb
   m_configObjects: {}
