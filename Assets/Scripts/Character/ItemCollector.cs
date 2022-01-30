@@ -6,9 +6,9 @@ using UnityEngine;
 public class ItemCollector : MonoBehaviour
 {
   private void OnTriggerEnter2D(Collider2D collision) {
-    var obj = collision.gameObject.GetComponent<GroundTile>();
+    var obj = collision.gameObject.GetComponent<Powerup>();
     if(obj) {
-      obj.close();
+      obj.ApplyPowerup(gameObject);
     }
   }
 }

@@ -68,6 +68,8 @@ MonoBehaviour:
   PlayerHit: {fileID: 8246488357330122656, guid: aebd36aabc3f1ce409a34fbe8bcc3b88, type: 3}
   Impulse: {fileID: 8246488357330122656, guid: ed20d81167a1c494697fa630c94a0f88, type: 3}
   Hui: {fileID: 8246488357330122656, guid: 7a3c94377ff953747a46dc9626fb39a4, type: 3}
+  Katsching: {fileID: 8246488357330122656, guid: 41f63c0cb473d7f418789165f217ebfd, type: 3}
+  Wahhh: {fileID: 8246488357330122656, guid: d3e50948d22baab41943d7688aaa35fb, type: 3}
 --- !u!114 &4244733913835762902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +86,11 @@ MonoBehaviour:
   RespawnArea: {fileID: 0}
   PlayerUI: {fileID: 8415239057138632529, guid: 353c6b167b9260a408971536ce915b62, type: 3}
   Ball: {fileID: 900911992734925372, guid: 9b6d7ec681ee37946bff793368d41b94, type: 3}
+  Models: []
   AmountBalls: 8
+  Powerups:
+  - {fileID: 303232109370073513, guid: 168b77a4cd577e64292abc113a813b76, type: 3}
+  SmokeEffect: {fileID: 3000233735177970322, guid: 193bbf49f028d86499f4425b746d1945, type: 3}
 --- !u!82 &2478181209954575416
 AudioSource:
   m_ObjectHideFlags: 0

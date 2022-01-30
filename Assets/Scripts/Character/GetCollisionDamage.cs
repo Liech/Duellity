@@ -12,7 +12,9 @@ public class GetCollisionDamage : MonoBehaviour
     if(obj.GetComponent<IsDangerous>()) {
       GameStateSingleton.instance.Players[GetComponent<PlayerSpawner>().playerNumber].Deaths++;
       if(SoundSingleton.instance.PlayerHit)
-        SoundSingleton.instance.playPlayerHit();
+        SoundSingleton.instance.playWahhh();
+      if(GameStateSingleton.instance.SmokeEffect)
+        Instantiate(GameStateSingleton.instance.SmokeEffect, transform.position, transform.rotation);
       if(GetComponent<Respawner>())
         GetComponent<Respawner>().respawn();
     }
