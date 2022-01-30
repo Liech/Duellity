@@ -48,6 +48,7 @@ public class GameStateSingleton : MonoBehaviour {
         ui.transform.Find("HitCount").GetComponent<Text>().text="Hits: "+Players[i].Deaths.ToString();
         ui.transform.Find("Score").GetComponent<Text>().text="Score: "+Players[i].Points.ToString();
         ui.transform.Find("PlayerName").GetComponent<Text>().text="Player "+(i+1).ToString()+ "   ";
+        Players[i].Character.transform.Find("PlayerName").GetComponent<TextMesh>().text=(i+1).ToString();
 
         //var rect = ui.transform.Find("EnergybarBackground").Find("EnergybarCurrent").GetComponent<RectTransform>();
         //var background = ui.transform.Find("EnergybarBackground").GetComponent<RectTransform>();
