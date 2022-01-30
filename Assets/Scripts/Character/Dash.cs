@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerBehavior))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -15,7 +15,7 @@ public class Dash : MonoBehaviour
   private void Start() {
     body=GetComponent<Rigidbody2D>();
   }
-  public void ActivateDash(UnityEngine.InputSystem.InputAction.CallbackContext ctx) {
+  public void ActivateDash(InputAction.CallbackContext ctx) {
     if(body.velocity.magnitude<1e-3)
       return;
     if (!inDash)
@@ -25,10 +25,10 @@ public class Dash : MonoBehaviour
   IEnumerator dash() {
     SoundSingleton.instance.playHui();
     inDash=true;
-    GetComponent<PlayerBehavior>().Stun=true;
+    GetComponent<PlayerBehavior>().isDashing = true;
     body.velocity=body.velocity.normalized*Strength;
     yield return new WaitForSeconds(Duration);
-    GetComponent<PlayerBehavior>().Stun=false;
+    GetComponent<PlayerBehavior>().isDashing = false;
     yield return new WaitForSeconds(Cooldown);
     inDash=false;
   }
