@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerBehavior : MonoBehaviour
 {
-    private Rigidbody2D _riggidRigidbody2D;
+    private Rigidbody2D _rigidRigidbody2D;
     public Animator animator;
 
     public float speed = 12.0f;
@@ -18,7 +18,7 @@ public class PlayerBehavior : MonoBehaviour
 
     private void Awake()
     {
-        _riggidRigidbody2D = GetComponent<Rigidbody2D>();
+        _rigidRigidbody2D = GetComponent<Rigidbody2D>();
         //_controls = new MasterInput();
         //_controls.Player.Move.started += context => _playerInputDirection = context.ReadValue<Vector2>();
         //_controls.Player.Move.performed += context => _playerInputDirection = context.ReadValue<Vector2>();
@@ -57,13 +57,13 @@ public class PlayerBehavior : MonoBehaviour
                 Mathf.SmoothDampAngle(transform.eulerAngles.z, targetAngle, ref _turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, 0f, smoothedAngle);
             var motion = direction * speed * Time.deltaTime;
-            _riggidRigidbody2D.velocity = motion;
+            _rigidRigidbody2D.velocity = motion;
 
             animator.SetFloat("velocity", 1f);
         }
         else
         {
-            _riggidRigidbody2D.velocity = Vector2.zero;
+            _rigidRigidbody2D.velocity = Vector2.zero;
             animator.SetFloat("velocity", 0f);
         }
     }

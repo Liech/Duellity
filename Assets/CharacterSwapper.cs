@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CharacterSwapper : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class CharacterSwapper : MonoBehaviour
     {
         _playerBehavior = GetComponent<PlayerBehavior>();
         _activeSkin = defaultSkin;
+        Random.InitState(DateTime.Now.Millisecond);
         ChooseRandom();
     }
 
