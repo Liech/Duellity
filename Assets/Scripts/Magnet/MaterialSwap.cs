@@ -39,8 +39,8 @@ public class MaterialSwap : MonoBehaviour
                 }
 
                 _oldType = MagneticType.Blue;
-        if(transform.Find("Light"))
-        transform.Find("Light").GetComponent<Light>().color=new Color(0, 0,255);
+        if(transform.Find("PlayerColorIndication"))
+        transform.Find("PlayerColorIndication").GetComponent<SpriteRenderer>().color=new Color(0, 0,255);
 
       }
       else
@@ -62,8 +62,8 @@ public class MaterialSwap : MonoBehaviour
 
                 _oldType = MagneticType.Red;
 
-        if(transform.Find("Light"))
-          transform.Find("Light").GetComponent<Light>().color=new Color(255, 0, 0);
+        if(transform.Find("PlayerColorIndication"))
+          transform.Find("PlayerColorIndication").GetComponent<SpriteRenderer>().color=new Color(255, 0, 0);
             }
         }
     }
