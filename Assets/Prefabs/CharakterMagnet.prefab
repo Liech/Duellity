@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07ebe5fd5aafb843bf574d166fc0d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 4227053267138347991}
+  animator: {fileID: 4227053267138347991}
   speed: 600
   turnSmoothTime: 0.1
   isDashing: 0
