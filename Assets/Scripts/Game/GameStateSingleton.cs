@@ -15,6 +15,7 @@ public class GameStateSingleton : MonoBehaviour {
   public int              AmountBalls = 8;
   public List<GameObject> Powerups = new List<GameObject>();
   public GameObject       SmokeEffect;
+  public GameObject       SparkEffect;
   public int              MaxAmountPowerups = 2;
   public float            PowerupCooldownMin = 5;
   public float            PowerupCooldownRandom = 3;
@@ -49,11 +50,6 @@ public class GameStateSingleton : MonoBehaviour {
         ui.transform.Find("Score").GetComponent<Text>().text="Score: "+Players[i].Points.ToString();
         ui.transform.Find("PlayerName").GetComponent<Text>().text="Player "+(i+1).ToString()+ "   ";
         Players[i].Character.transform.Find("PlayerName").GetComponent<TextMesh>().text=(i+1).ToString();
-
-        //var rect = ui.transform.Find("EnergybarBackground").Find("EnergybarCurrent").GetComponent<RectTransform>();
-        //var background = ui.transform.Find("EnergybarBackground").GetComponent<RectTransform>();
-        //float value = 0.5f;
-        //rect.sizeDelta=new Vector2(background.sizeDelta.x * value, background.sizeDelta.y);
       }
     float passed = Time.timeSinceLevelLoad;
     int left = (int)(GameDuration-passed);
