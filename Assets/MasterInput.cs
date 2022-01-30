@@ -233,7 +233,7 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f45127a1-6db1-4db8-a86c-e2c4ad4f7848"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -266,7 +266,7 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""940a57d2-f15b-4bc5-a86f-be99692c860e"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
