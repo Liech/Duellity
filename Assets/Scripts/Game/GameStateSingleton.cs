@@ -47,7 +47,7 @@ public class GameStateSingleton : MonoBehaviour {
         var ui = Players[i].GUI;
         ui.transform.Find("HitCount").GetComponent<Text>().text="Hits: "+Players[i].Deaths.ToString();
         ui.transform.Find("Score").GetComponent<Text>().text="Score: "+Players[i].Points.ToString();
-        ui.transform.Find("PlayerName").GetComponent<Text>().text="Player "+i.ToString()+ "   ";
+        ui.transform.Find("PlayerName").GetComponent<Text>().text="Player "+(i+1).ToString()+ "   ";
 
         //var rect = ui.transform.Find("EnergybarBackground").Find("EnergybarCurrent").GetComponent<RectTransform>();
         //var background = ui.transform.Find("EnergybarBackground").GetComponent<RectTransform>();
@@ -127,7 +127,7 @@ public class GameStateSingleton : MonoBehaviour {
     }
 
     if(winner != null) {
-      WinnerText="Player "+index.ToString()+" wins!";
+      WinnerText="Player "+(index+1).ToString()+" wins!";
     }
     
     UnityEngine.SceneManagement.SceneManager.LoadScene("WinnerScene");
