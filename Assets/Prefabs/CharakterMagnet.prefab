@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 4014904086358772274}
   - component: {fileID: -7671058962820109257}
   - component: {fileID: 3462796513162281136}
+  - component: {fileID: 6167602990038948567}
   m_Layer: 0
   m_Name: CharakterMagnet
   m_TagString: Untagged
@@ -167,6 +168,7 @@ MonoBehaviour:
   impulseAdd: 10
   reflectPercentage: 0.1
   directPercentage: 0.9
+  TimeSinceImpulse: 0
 --- !u!114 &2174941536467537220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,6 +406,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSkin: {fileID: 901870377334733417}
+--- !u!114 &6167602990038948567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6138317538752993379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796612091db92d546be1c092d7ec7dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 7f470d3e96e9a1948a1e3c3a92cd64ff, type: 3}
+  - {fileID: 21300000, guid: 42cfc9c8b9bc7564d89e776a68f223ec, type: 3}
+  - {fileID: 21300000, guid: 911642cf8592d754db1820817e69516a, type: 3}
+  - {fileID: 21300000, guid: 7df8a6cb3cf8df149a48a21145414617, type: 3}
+  - {fileID: 21300000, guid: c285dd484adf3cc46b0789bc643b0455, type: 3}
+  - {fileID: 21300000, guid: dc4fd48fd6152354c8576810e70cebc6, type: 3}
+  - {fileID: 21300000, guid: b8cffbca2bf70dc4c80db8d74d2da465, type: 3}
+  - {fileID: 21300000, guid: 0762cf8953585b84797cf9b6a53afd26, type: 3}
+  - {fileID: 21300000, guid: 705d4690d45aa8a4498fe5855a2a95fe, type: 3}
 --- !u!1 &6799857244072428364
 GameObject:
   m_ObjectHideFlags: 0
