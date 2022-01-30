@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
+  - enabled: 1
+    path: Assets/Scenes/NikiMagneticDevScene.unity
+    guid: b3d640bad03f1144eb22e9677a7abdde
+  - enabled: 1
+    path: Assets/Scenes/WinnerScene.unity
+    guid: 0783c87b1b770094c9a214372a31ad46
   m_configObjects: {}

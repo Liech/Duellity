@@ -11,6 +11,7 @@ public class MomentumFreeze : MonoBehaviour {
   public float freezeDuration = 0.1f;
   public float freezeThreshold = 5;
   public AnimationCurve freezeDurationFactor;
+  public bool manualFreeze = true;
 
   private float maxSpeed = float.MaxValue;
   bool frozen = false;
@@ -26,25 +27,26 @@ public class MomentumFreeze : MonoBehaviour {
       maxSpeed = GetComponent<SpeedControl>().MaxSpeed;
   }
   
+
+  public void doFreeze() {
+    StopAllCoroutines();
+    newVelocity=body.velocity;
+    StartCoroutine(freeze());
+  }
+
   // Update is called once per frame
   void FixedUpdate() {
     
-    if((lastVelocity-body.velocity).magnitude > freezeThreshold) {
-      if(!frozen) {
-        newVelocity=body.velocity;
-        StartCoroutine(freeze());
-      }
-      else {
-        StopAllCoroutines();
-        newVelocity=body.velocity;
-        StartCoroutine(freeze());
-      }
+    if(!manualFreeze && (lastVelocity-body.velocity).magnitude > freezeThreshold) {
+      doFreeze();
     }
     lastVelocity=body.velocity;
 
   }
   
   IEnumerator freeze() {
+    var smoke = Instantiate(GameStateSingleton.instance.SmokeEffect);
+    smoke.transform.position=transform.position;
     frozen=true;
     body.velocity=new Vector2();
     lastVelocity=body.velocity;

@@ -13,6 +13,7 @@ public class MagnetImpulse : MonoBehaviour
   public float impulseAdd         = 0.5f;
   public float reflectPercentage  = 0.5f;
   public float directPercentage   = 0.5f;
+  public float TimeSinceImpulse = 0;
 
   private bool ready = true;
   private Rigidbody2D body;
@@ -43,6 +44,7 @@ public class MagnetImpulse : MonoBehaviour
   }
 
   void impulse() {
+    TimeSinceImpulse=Time.time;
     SoundSingleton.instance.playImpulse();
     foreach(var obj in GameObject.FindObjectsOfType<AffectedFromMagnetic>()) {
       var body=obj.GetComponent<Rigidbody2D>();
@@ -56,8 +58,10 @@ public class MagnetImpulse : MonoBehaviour
       float speed = body.velocity.magnitude * impulseFactor + impulseAdd;
       var newVel = reflect * reflectPercentage * speed + directPercentage * speed * dir;
       obj.GetComponent<Rigidbody2D>().velocity=newVel*magneticDir;
+      var freeze = obj.GetComponent<MomentumFreeze>();
+      if(freeze)
+        freeze.doFreeze();
     }
-
   }
 
   IEnumerator cooldown() {

@@ -7,7 +7,6 @@ public enum groundTileStatus {
   Open, Closing, Closed, Opening
 }
 
-[RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class GroundTile : MonoBehaviour {
 
@@ -19,12 +18,15 @@ public class GroundTile : MonoBehaviour {
   float door1Pos;
   float door2Pos;
   float platform;
+  bool ready = true;
+
+  public Vector3 spawnOffset = new Vector3(0,0,0);
 
   private void Start() {
     door1Pos=d1().localPosition.z;
     door2Pos=d2().localPosition.z;
     platform=p().localPosition.y;
-    open();
+    //open();
   }
   public void open() {
     StartCoroutine(moving(true));
@@ -45,7 +47,10 @@ public class GroundTile : MonoBehaviour {
 
 
   IEnumerator moving(bool open) {
-    openingAmount=0;
+    Debug.Log(open);
+    ready=false;
+    if (open)
+      GameStateSingleton.instance.CurrentAmountPowerups++;
     int amountTicks = 60;
     float timePerTick = AnimationTime/amountTicks;
 
@@ -57,11 +62,32 @@ public class GroundTile : MonoBehaviour {
         openingAmount-=openingRange/amountTicks;
       d1().transform.localPosition=new Vector3(d1().localPosition.x, d1().localPosition.y, door1Pos+openingAmount);
       d2().transform.localPosition=new Vector3(d1().localPosition.x, d1().localPosition.y,door1Pos-openingAmount);
-      p().transform.localPosition =new Vector3(p().localPosition.x, platform+0.5f*((float)i / amountTicks), p().localPosition.z);
+      if (open)
+        p().transform.localPosition =new Vector3(p().localPosition.x, platform+0.5f*((float)i / amountTicks), p().localPosition.z);
+      else
+        p().transform.localPosition=new Vector3(p().localPosition.x, platform-0.5f*((float)i/amountTicks), p().localPosition.z);
     }
+    if(GameStateSingleton.instance.Powerups.Count!=0&&open) {
+      var powerup = GameStateSingleton.instance.Powerups[Random.Range(0,GameStateSingleton.instance.Powerups.Count)];
+      var plate = transform.Find("TileGround1_Symbol").gameObject.GetComponent<MeshRenderer>().bounds.center;
+      var p = Instantiate(powerup);
+      p.transform.GetChild(0).GetComponent<Powerup>().tile=this;
+      p.transform.position = plate+spawnOffset;
+    }
+    else if(open)
+      GameStateSingleton.instance.CurrentAmountPowerups--;
+    if(!open)
+      ready=true;
   }
 
   private void OnTriggerEnter2D(Collider2D collision) {
     
+  }
+
+  public bool isReady() {
+    if(!ready)
+      return false;
+
+    return true;
   }
 }
