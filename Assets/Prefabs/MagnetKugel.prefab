@@ -271,6 +271,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5754084199372789682, guid: 3fb2b3400ce5f9f4887cf4259d7cdf92, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 212370497460711607, guid: afc521050c3b6bd46b5cc16b17f36907, type: 3}
     - target: {fileID: 919132149155446097, guid: 3fb2b3400ce5f9f4887cf4259d7cdf92, type: 3}
       propertyPath: m_Name
       value: ProjectileBlockout
