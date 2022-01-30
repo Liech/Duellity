@@ -13185,6 +13185,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ca4c590bf9897c45a5cc511dcd0f060, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5ca4c590bf9897c45a5cc511dcd0f060, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d6b456526d1bbcb429e98d97e7502e5b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5ca4c590bf9897c45a5cc511dcd0f060, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0a4b72b3ae0edfe4fab7ea00b143d6c3, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5ca4c590bf9897c45a5cc511dcd0f060, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a03422a5f593bc4da546b539d4a25d3, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5ca4c590bf9897c45a5cc511dcd0f060, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a1777b3518251840ac71b8f891917ee, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5ca4c590bf9897c45a5cc511dcd0f060, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: af607b908124a3d409b401cfef2f3e1b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5ca4c590bf9897c45a5cc511dcd0f060, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 475b1fe133eb3c24eb2d614252013fa5, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5ca4c590bf9897c45a5cc511dcd0f060, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: febc33f6d87f8fe44a52158ca2fef646, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5ca4c590bf9897c45a5cc511dcd0f060, type: 3}
+      propertyPath: m_Materials.Array.data[7]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a03422a5f593bc4da546b539d4a25d3, type: 2}
     - target: {fileID: 919132149155446097, guid: 5ca4c590bf9897c45a5cc511dcd0f060, type: 3}
       propertyPath: m_Name
       value: RocketBase
