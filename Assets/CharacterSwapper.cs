@@ -24,7 +24,7 @@ public class CharacterSwapper : MonoBehaviour
 
     private void ChooseRandom()
     {
-        ChooseCharacter(Random.Range(0, 4));
+        ChooseCharacter(Random.Range(0, 6));
     }
 
     public void ChooseCharacter(int i)
