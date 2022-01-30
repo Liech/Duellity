@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class MainMenuManager : MonoBehaviour
     public Slider[] volumeSliders;
     public GameObject[] menus;
     public Transform playerList;
+    public GameObject hideText;
     void Start()
     {
         
@@ -25,6 +27,7 @@ public class MainMenuManager : MonoBehaviour
     }
     public void mainMenu()
     {
+        hideText.SetActive(true);
         for (int i = 0; i < menus.Length; i++)
         {
             menus[i].gameObject.SetActive(false);
@@ -33,6 +36,7 @@ public class MainMenuManager : MonoBehaviour
     }
     public void openOptions()
     {
+        hideText.SetActive(false);
         for (int i = 0; i < menus.Length; i++)
         {
             menus[i].gameObject.SetActive(false);
