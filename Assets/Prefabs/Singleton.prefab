@@ -89,7 +89,6 @@ MonoBehaviour:
   Models: []
   AmountBalls: 8
   Powerups:
-  - {fileID: 303232109370073513, guid: 168b77a4cd577e64292abc113a813b76, type: 3}
   - {fileID: 303232109370073513, guid: 54c368bd3d2600048aba181db2424507, type: 3}
   SmokeEffect: {fileID: 8720926833848393409, guid: 3b667c7f1d43c1843a9ff0f9b861e062, type: 3}
   SparkEffect: {fileID: 667587738682124289, guid: 5bc51b556d86e34449d4f2d1fcf914ae, type: 3}
