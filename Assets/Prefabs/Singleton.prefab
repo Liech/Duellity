@@ -90,7 +90,7 @@ MonoBehaviour:
   AmountBalls: 8
   Powerups:
   - {fileID: 303232109370073513, guid: 168b77a4cd577e64292abc113a813b76, type: 3}
-  SmokeEffect: {fileID: 3000233735177970322, guid: 193bbf49f028d86499f4425b746d1945, type: 3}
+  SmokeEffect: {fileID: 8720926833848393409, guid: 3b667c7f1d43c1843a9ff0f9b861e062, type: 3}
 --- !u!82 &2478181209954575416
 AudioSource:
   m_ObjectHideFlags: 0
@@ -103,7 +103,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 024a75283690a684882facc1d20fbaab, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.174
+  m_Volume: 0.271
   m_Pitch: 1
   Loop: 1
   Mute: 0
