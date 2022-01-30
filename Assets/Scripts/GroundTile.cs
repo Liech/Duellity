@@ -7,7 +7,6 @@ public enum groundTileStatus {
   Open, Closing, Closed, Opening
 }
 
-[RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class GroundTile : MonoBehaviour {
 
@@ -24,7 +23,7 @@ public class GroundTile : MonoBehaviour {
     door1Pos=d1().localPosition.z;
     door2Pos=d2().localPosition.z;
     platform=p().localPosition.y;
-    open();
+    //open();
   }
   public void open() {
     StartCoroutine(moving(true));
@@ -45,6 +44,10 @@ public class GroundTile : MonoBehaviour {
 
 
   IEnumerator moving(bool open) {
+    if(!open) {
+      transform.Find("Item").GetComponent<MeshRenderer>().enabled=open;
+      //transform.Find("Item").GetComponent<CircleCollider2D>().enabled=open;
+    }
     openingAmount=0;
     int amountTicks = 60;
     float timePerTick = AnimationTime/amountTicks;
@@ -59,6 +62,8 @@ public class GroundTile : MonoBehaviour {
       d2().transform.localPosition=new Vector3(d1().localPosition.x, d1().localPosition.y,door1Pos-openingAmount);
       p().transform.localPosition =new Vector3(p().localPosition.x, platform+0.5f*((float)i / amountTicks), p().localPosition.z);
     }
+    transform.Find("Item").GetComponent<MeshRenderer>().enabled=open;
+    //transform.Find("Item").GetComponent<CircleCollider2D>().enabled=open;
   }
 
   private void OnTriggerEnter2D(Collider2D collision) {
