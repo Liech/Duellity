@@ -14,7 +14,7 @@ public class PlayerBehavior : MonoBehaviour
     private Vector2 _playerInputDirection;
     private float _turnSmoothVelocity;
 
-    public bool Stun = false;
+    public bool isDashing;
 
     private void Awake()
     {
@@ -27,18 +27,25 @@ public class PlayerBehavior : MonoBehaviour
 
     private void FixedUpdate()
     {
-    if (!Stun)
-        MovePlayer(_playerInputDirection);
+        if (isDashing)
+        {
+            _animator.SetBool("dash", true);
+        }
+        else
+        {
+            _animator.SetBool("dash", false);
+            MovePlayer(_playerInputDirection);
+        }
     }
 
     public void OnMove(InputAction.CallbackContext ctx)
     {
-    _playerInputDirection = ctx.ReadValue<Vector2>();
-  }
+        _playerInputDirection = ctx.ReadValue<Vector2>();
+    }
 
-  private void MovePlayer(Vector2 movementDirection)
+    private void MovePlayer(Vector2 movementDirection)
     {
-    GetComponent<Rigidbody2D>().angularVelocity=0;
+        GetComponent<Rigidbody2D>().angularVelocity = 0;
         var viewCorrectedDirection = new Vector2(-movementDirection.x, movementDirection.y);
 
         var unnormalized = new Vector2(viewCorrectedDirection.x, viewCorrectedDirection.y);
@@ -51,10 +58,6 @@ public class PlayerBehavior : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 0f, smoothedAngle);
             var motion = direction * speed * Time.deltaTime;
             _riggidRigidbody2D.velocity = motion;
-            
-
-            var velocityY = Vector3.Dot(motion.normalized, transform.forward);
-            var velocityX = Vector3.Dot(motion.normalized, transform.right);
 
             _animator.SetFloat("velocity", 1f);
         }
