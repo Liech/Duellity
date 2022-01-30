@@ -97,7 +97,7 @@ MonoBehaviour:
   PowerupCooldownRandom: 3
   InitialPowerupCooldown: 2
   CurrentAmountPowerups: 0
-  GameDuration: 60
+  GameDuration: 180
 --- !u!114 &-4645503712133256500
 MonoBehaviour:
   m_ObjectHideFlags: 0
