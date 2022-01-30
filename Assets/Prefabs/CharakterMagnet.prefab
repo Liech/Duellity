@@ -157,8 +157,8 @@ MonoBehaviour:
   activationKey: 101
   FollowCharacter: 1
   range: 6.19
-  impulseFactor: 2
-  impulseAdd: 40
+  impulseFactor: 4
+  impulseAdd: 10
   reflectPercentage: 0.1
   directPercentage: 0.9
 --- !u!114 &2174941536467537220
@@ -223,7 +223,7 @@ MonoBehaviour:
   _animator: {fileID: 4227053267138347991}
   speed: 600
   turnSmoothTime: 0.1
-  Stun: 0
+  isDashing: 0
 --- !u!114 &5151123094510315280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,9 +518,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 719296742818879050, guid: 04dd473ab3189d34b9b8e024b2d92878, type: 3}
+      propertyPath: m_Name
+      value: DogMesh
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 04dd473ab3189d34b9b8e024b2d92878, type: 3}
       propertyPath: m_Name
-      value: doggo_run_anim_baked
+      value: Dog
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 04dd473ab3189d34b9b8e024b2d92878, type: 3}
       propertyPath: m_Enabled
