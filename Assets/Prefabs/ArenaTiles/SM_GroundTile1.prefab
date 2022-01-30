@@ -319,6 +319,7 @@ MonoBehaviour:
   AnimationTime: 1
   openingRange: 5
   status: 2
+  spawnOffset: {x: 0, y: 0, z: 0.58}
 --- !u!1 &8231239831484509767
 GameObject:
   m_ObjectHideFlags: 0
