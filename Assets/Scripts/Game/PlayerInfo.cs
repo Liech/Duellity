@@ -8,4 +8,5 @@ public class PlayerInfo
   public uint Points = 0;
   public Color clr;
   public GameObject GUI;
+  public GameObject Character;
 }
