@@ -45,6 +45,8 @@ public class MomentumFreeze : MonoBehaviour {
   }
   
   IEnumerator freeze() {
+    var smoke = Instantiate(GameStateSingleton.instance.SmokeEffect);
+    smoke.transform.position=transform.position;
     frozen=true;
     body.velocity=new Vector2();
     lastVelocity=body.velocity;
