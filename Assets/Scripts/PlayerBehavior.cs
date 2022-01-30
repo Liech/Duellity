@@ -64,7 +64,7 @@ public class PlayerBehavior : MonoBehaviour
         else
         {
             _riggidRigidbody2D.velocity = Vector2.zero;
-            animator.SetFloat("velocity", 0);
+            animator.SetFloat("velocity", 0f);
         }
     }
 
