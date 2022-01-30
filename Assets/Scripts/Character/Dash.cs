@@ -10,6 +10,8 @@ public class Dash : MonoBehaviour
   public float Strength = 100f;
   public float Duration = 0.3f;
 
+  public float TimeSinceImpulse;
+
   bool inDash = false;
   Rigidbody2D body;
   private void Start() {
@@ -23,6 +25,7 @@ public class Dash : MonoBehaviour
   }
 
   IEnumerator dash() {
+    TimeSinceImpulse=Time.time;
     SoundSingleton.instance.playHui();
     inDash=true;
     GetComponent<PlayerBehavior>().isDashing = true;
