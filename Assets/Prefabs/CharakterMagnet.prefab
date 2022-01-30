@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 5151123094510315280}
   - component: {fileID: -4952257074617982528}
   - component: {fileID: -5074918760297772622}
+  - component: {fileID: 4014904086358772274}
   m_Layer: 0
   m_Name: CharakterMagnet
   m_TagString: Untagged
@@ -240,6 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 600
   turnSmoothTime: 0.1
+  Stun: 0
 --- !u!114 &5151123094510315280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +330,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c9634d3a-302a-4ccb-aa69-ea2f5a297338
     m_ActionName: Player/Impulse[/Keyboard/e,/XInputControllerWindows/buttonEast,/XInputControllerWindows1/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4014904086358772274}
+        m_TargetAssemblyTypeName: Dash, Assembly-CSharp
+        m_MethodName: ActivateDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: db8fe7f8-a5e4-4db6-bb90-cf8f2125a43b
+    m_ActionName: Player/Dash[/Keyboard/q,/XInputControllerWindows/rightShoulder,/XInputControllerWindows1/rightShoulder,/XInputControllerWindows2/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -345,6 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f85d0842f106fe44a218251bd445b68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 0
 --- !u!114 &-5074918760297772622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,6 +376,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b34f8fba0e253f408530e306c7d588c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4014904086358772274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6138317538752993379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57a27eaa2ad6c74cba2ba0ad885511e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cooldown: 1
+  Strength: 100
+  Duration: 0.1
 --- !u!1 &6799857244072428364
 GameObject:
   m_ObjectHideFlags: 0

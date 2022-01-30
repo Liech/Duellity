@@ -9,8 +9,12 @@ public class SoundSingleton : MonoBehaviour
   public GameObject Collide;
   public GameObject PlayerHit;
   public GameObject Impulse;
+  public GameObject Hui;
 
 
+  public void playHui() {
+    if(PlayerHit) Instantiate(Hui, transform);
+  }
   public void playPlayerHit() {
     if(PlayerHit) Instantiate(PlayerHit, transform);
   }

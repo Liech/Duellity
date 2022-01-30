@@ -67,6 +67,7 @@ MonoBehaviour:
   Collide: {fileID: 8246488357330122656, guid: e152c64c2702d7b4a860bbc04dfdc81a, type: 3}
   PlayerHit: {fileID: 8246488357330122656, guid: aebd36aabc3f1ce409a34fbe8bcc3b88, type: 3}
   Impulse: {fileID: 8246488357330122656, guid: ed20d81167a1c494697fa630c94a0f88, type: 3}
+  Hui: {fileID: 8246488357330122656, guid: 7a3c94377ff953747a46dc9626fb39a4, type: 3}
 --- !u!114 &4244733913835762902
 MonoBehaviour:
   m_ObjectHideFlags: 0

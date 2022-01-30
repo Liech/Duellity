@@ -53,6 +53,15 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""db8fe7f8-a5e4-4db6-bb90-cf8f2125a43b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -229,6 +238,28 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Impulse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""940a57d2-f15b-4bc5-a86f-be99692c860e"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b2e19f15-a93d-448e-b365-cde09ef2b41c"",
+                    ""path"": ""<XInputController>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -624,6 +655,7 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_ToggleMagnet = m_Player.FindAction("ToggleMagnet", throwIfNotFound: true);
         m_Player_Impulse = m_Player.FindAction("Impulse", throwIfNotFound: true);
+        m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -691,6 +723,7 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_ToggleMagnet;
     private readonly InputAction m_Player_Impulse;
+    private readonly InputAction m_Player_Dash;
     public struct PlayerActions
     {
         private @MasterInput m_Wrapper;
@@ -698,6 +731,7 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @ToggleMagnet => m_Wrapper.m_Player_ToggleMagnet;
         public InputAction @Impulse => m_Wrapper.m_Player_Impulse;
+        public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -716,6 +750,9 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
                 @Impulse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnImpulse;
                 @Impulse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnImpulse;
                 @Impulse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnImpulse;
+                @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -729,6 +766,9 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
                 @Impulse.started += instance.OnImpulse;
                 @Impulse.performed += instance.OnImpulse;
                 @Impulse.canceled += instance.OnImpulse;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
             }
         }
     }
@@ -832,6 +872,7 @@ public partial class @MasterInput : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnToggleMagnet(InputAction.CallbackContext context);
         void OnImpulse(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

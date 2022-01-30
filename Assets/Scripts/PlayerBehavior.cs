@@ -15,6 +15,8 @@ public class PlayerBehavior : MonoBehaviour
     private Vector2 _playerInputDirection;
     private float _turnSmoothVelocity;
 
+    public bool Stun = false;
+
     private void Awake()
     {
         _riggidRigidbody2D = GetComponent<Rigidbody2D>();
@@ -27,6 +29,7 @@ public class PlayerBehavior : MonoBehaviour
 
     private void FixedUpdate()
     {
+    if (!Stun)
         MovePlayer(_playerInputDirection);
     }
 
