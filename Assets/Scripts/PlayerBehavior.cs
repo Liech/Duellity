@@ -1,50 +1,77 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerBehavior : MonoBehaviour
 {
-    private CharacterController _characterController;
+    private Rigidbody2D _riggidRigidbody2D;
+    public Animator _animator;
 
-    public float speed = 8.0f;
+    public float speed = 12.0f;
     public float turnSmoothTime = 0.1f;
 
-    private MasterInput _controls;
+    //private MasterInput _controls;
     private Vector2 _playerInputDirection;
     private float _turnSmoothVelocity;
 
+    public bool Stun = false;
+
     private void Awake()
     {
-        _characterController = GetComponent<CharacterController>();
-        _controls = new MasterInput();
-        _controls.Player.Move.performed += context => _playerInputDirection = context.ReadValue<Vector2>();
-        _controls.Player.Move.canceled += context => _playerInputDirection = context.ReadValue<Vector2>();
+        _riggidRigidbody2D = GetComponent<Rigidbody2D>();
+        //_controls = new MasterInput();
+        //_controls.Player.Move.started += context => _playerInputDirection = context.ReadValue<Vector2>();
+        //_controls.Player.Move.performed += context => _playerInputDirection = context.ReadValue<Vector2>();
+        //_controls.Player.Move.canceled += context => _playerInputDirection = context.ReadValue<Vector2>();
     }
 
     private void FixedUpdate()
     {
+    if (!Stun)
         MovePlayer(_playerInputDirection);
     }
 
-    private void MovePlayer(Vector2 movementDirection)
+    public void OnMove(InputAction.CallbackContext ctx)
     {
-        var direction = new Vector3(movementDirection.x, 0f, movementDirection.y).normalized;
-        if (direction.magnitude >= 0.05f)
+    _playerInputDirection = ctx.ReadValue<Vector2>();
+  }
+
+  private void MovePlayer(Vector2 movementDirection)
+    {
+    GetComponent<Rigidbody2D>().angularVelocity=0;
+        var viewCorrectedDirection = new Vector2(-movementDirection.x, movementDirection.y);
+
+        var unnormalized = new Vector2(viewCorrectedDirection.x, viewCorrectedDirection.y);
+        var direction = unnormalized.normalized;
+        if (unnormalized.magnitude >= 0.05f)
         {
-            var targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+            var targetAngle = Mathf.Atan2(direction.x, -direction.y) * Mathf.Rad2Deg;
             var smoothedAngle =
-                Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, smoothedAngle, 0f);
-            _characterController.Move(direction * speed * Time.deltaTime);
+                Mathf.SmoothDampAngle(transform.eulerAngles.z, targetAngle, ref _turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, 0f, smoothedAngle);
+            var motion = direction * speed * Time.deltaTime;
+            _riggidRigidbody2D.velocity = motion;
+            
+
+            var velocityY = Vector3.Dot(motion.normalized, transform.forward);
+            var velocityX = Vector3.Dot(motion.normalized, transform.right);
+
+            _animator.SetFloat("velocity", 1f);
+        }
+        else
+        {
+            _riggidRigidbody2D.velocity = Vector2.zero;
+            _animator.SetFloat("velocity", 0);
         }
     }
 
     private void OnEnable()
     {
-        _controls.Enable();
+        //_controls.Enable();
     }
 
     private void OnDisable()
     {
-        _controls.Disable();
+        //_controls.Disable();
     }
 }

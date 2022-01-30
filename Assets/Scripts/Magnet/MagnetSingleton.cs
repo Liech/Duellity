@@ -8,6 +8,8 @@ public class MagnetSingleton : MonoBehaviour {
   public Material RedMaterial;
   public Material BlueMaterial;
   public Material GotHitMaterial;
+  public GameObject ImpulseEffectRed;
+  public GameObject ImpulseEffectBlue;
 
   private void Start() {
     instance=this;

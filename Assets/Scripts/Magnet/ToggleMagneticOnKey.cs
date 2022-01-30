@@ -9,8 +9,12 @@ public class ToggleMagneticOnKey : MonoBehaviour {
   private void Start() {
     magnet=GetComponent<Magnetic>();
   }
-  void Update() {
-    if(Input.GetKeyDown(key))
-      magnet.toggle();
-    }
+
+  public void ToggleMagnet(UnityEngine.InputSystem.InputAction.CallbackContext ctx) {
+    magnet.toggle();//_playerInputDirection=ctx.ReadValue<Vector2>();
+  }
+  //void Update() {
+  //  if(Input.GetKeyDown(key))
+  //    magnet.toggle();
+  //}
 }
