@@ -43,6 +43,11 @@ public class CharacterSwapper : MonoBehaviour
         _playerBehavior.animator = _activeSkin.GetComponent<Animator>();
     }
 
+    public GameObject GetActiveSkin()
+    {
+        return _activeSkin;
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
