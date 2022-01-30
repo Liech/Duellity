@@ -56,12 +56,14 @@ public class PlayerBehavior : MonoBehaviour
             var velocityY = Vector3.Dot(motion.normalized, transform.forward);
             var velocityX = Vector3.Dot(motion.normalized, transform.right);
 
-            _animator.SetFloat("velocity", unnormalized.magnitude, 0.05f, Time.deltaTime);
+            _animator.SetFloat("velocity", 1f);
+            Debug.Log(0);
         }
         else
         {
             _riggidRigidbody2D.velocity = Vector2.zero;
-            _animator.SetFloat("velocity", 0, 0.05f, Time.deltaTime);
+            _animator.SetFloat("velocity", 0);
+            Debug.Log(0);
         }
     }
 
