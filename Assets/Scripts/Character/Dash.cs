@@ -18,8 +18,8 @@ public class Dash : MonoBehaviour
   public void ActivateDash(UnityEngine.InputSystem.InputAction.CallbackContext ctx) {
     if(body.velocity.magnitude<1e-3)
       return;
-
-    StartCoroutine(dash());
+    if (!inDash)
+      StartCoroutine(dash());
   }
 
   IEnumerator dash() {
@@ -29,6 +29,7 @@ public class Dash : MonoBehaviour
     body.velocity=body.velocity.normalized*Strength;
     yield return new WaitForSeconds(Duration);
     GetComponent<PlayerBehavior>().Stun=false;
+    yield return new WaitForSeconds(Cooldown);
     inDash=false;
   }
 }
