@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -37,6 +38,10 @@ public class MainMenuManager : MonoBehaviour
             menus[i].gameObject.SetActive(false);
         }
         menus[1].SetActive(true);
+    }
+    public void Startgame()
+    {
+        SceneManager.LoadScene("NikiMagneticDevScene");
     }
     public void GameLobby()
     {
