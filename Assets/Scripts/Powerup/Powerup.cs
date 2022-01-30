@@ -7,6 +7,7 @@ using UnityEngine;
 public class Powerup : MonoBehaviour {
   public GroundTile tile = null;
   public void ApplyPowerup(GameObject g) {
+    Debug.Log("CollectApplyPowerup");
     if(GameStateSingleton.instance.SmokeEffect)
       Instantiate(GameStateSingleton.instance.SmokeEffect,transform.position,transform.rotation);
     GetComponent<PowerupInstance>().Apply(g);

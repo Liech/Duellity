@@ -68,7 +68,8 @@ public class GroundTile : MonoBehaviour {
         p().transform.localPosition=new Vector3(p().localPosition.x, platform-0.5f*((float)i/amountTicks), p().localPosition.z);
     }
     if(GameStateSingleton.instance.Powerups.Count!=0&&open) {
-      var powerup = GameStateSingleton.instance.Powerups[Random.Range(0,GameStateSingleton.instance.Powerups.Count)];
+      //var powerup = GameStateSingleton.instance.Powerups[Random.Range(0,GameStateSingleton.instance.Powerups.Count)];
+      var powerup = GameStateSingleton.instance.Powerups[0];
       var plate = transform.Find("TileGround1_Symbol").gameObject.GetComponent<MeshRenderer>().bounds.center;
       var p = Instantiate(powerup);
       p.transform.GetChild(0).GetComponent<Powerup>().tile=this;
