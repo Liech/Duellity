@@ -12,7 +12,7 @@ public class PlayerSpawner : MonoBehaviour {
     info.clr.a=1;
     transform.Find("PlayerColorIndication").GetComponent<SpriteRenderer>().color=info.clr;
     playerNumber = GameStateSingleton.instance.addPlayer(info);
-   
+    
   }
 
   // Update is called once per frame

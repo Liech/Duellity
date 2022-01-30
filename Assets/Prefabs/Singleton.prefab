@@ -90,7 +90,14 @@ MonoBehaviour:
   AmountBalls: 8
   Powerups:
   - {fileID: 303232109370073513, guid: 168b77a4cd577e64292abc113a813b76, type: 3}
+  - {fileID: 303232109370073513, guid: 54c368bd3d2600048aba181db2424507, type: 3}
   SmokeEffect: {fileID: 8720926833848393409, guid: 3b667c7f1d43c1843a9ff0f9b861e062, type: 3}
+  MaxAmountPowerups: 2
+  PowerupCooldownMin: 5
+  PowerupCooldownRandom: 3
+  InitialPowerupCooldown: 2
+  CurrentAmountPowerups: 0
+  GameDuration: 60
 --- !u!82 &2478181209954575416
 AudioSource:
   m_ObjectHideFlags: 0

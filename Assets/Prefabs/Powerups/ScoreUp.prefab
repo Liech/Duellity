@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2435515144679516783}
   m_Layer: 0
-  m_Name: EnergyBoost
+  m_Name: ScoreUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b4b6f808c2e2bd543b83c9ea03cfdcb4, type: 2}
+  - {fileID: 2100000, guid: 78751b20bbb316441963a9f3c4961bd9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -71,8 +71,6 @@ public class GroundTile : MonoBehaviour {
       var powerup = GameStateSingleton.instance.Powerups[Random.Range(0,GameStateSingleton.instance.Powerups.Count)];
       var plate = transform.Find("TileGround1_Symbol").gameObject.GetComponent<MeshRenderer>().bounds.center;
       var p = Instantiate(powerup);
-      Debug.Log(p);
-      Debug.Log(p.GetComponent<Powerup>());
       p.transform.GetChild(0).GetComponent<Powerup>().tile=this;
       p.transform.position = plate+spawnOffset;
     }

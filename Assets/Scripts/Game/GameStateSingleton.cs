@@ -20,6 +20,8 @@ public class GameStateSingleton : MonoBehaviour {
   public float            PowerupCooldownRandom = 3;
   public float            InitialPowerupCooldown = 2;
   public int              CurrentAmountPowerups = 0;
+  public float            GameDuration = 180f;
+  public static string    WinnerText = "No One Wins";
 
   private void Awake() {
     instance=this;
@@ -44,12 +46,20 @@ public class GameStateSingleton : MonoBehaviour {
       for(int i = 0;i<Players.Count;i++) {
         var ui = Players[i].GUI;
         ui.transform.Find("HitCount").GetComponent<Text>().text="Hits: "+Players[i].Deaths.ToString();
-        
+        ui.transform.Find("Score").GetComponent<Text>().text="Score: "+Players[i].Points.ToString();
+
         var rect = ui.transform.Find("EnergybarBackground").Find("EnergybarCurrent").GetComponent<RectTransform>();
         var background = ui.transform.Find("EnergybarBackground").GetComponent<RectTransform>();
         float value = 0.5f;
         rect.sizeDelta=new Vector2(background.sizeDelta.x * value, background.sizeDelta.y);
       }
+    float passed = Time.timeSinceLevelLoad;
+    int left = (int)(GameDuration-passed);
+    GUI.transform.Find("Time").GetComponent<UnityEngine.UI.Text>().text="Time: "+ (left / 60).ToString("00") + ":" + (left%60).ToString("00");
+
+    if (left <0) {
+      declareWinner();
+    }
   }
 
   public int addPlayer(PlayerInfo info) {
@@ -94,5 +104,9 @@ public class GameStateSingleton : MonoBehaviour {
         obj.open();
       } 
     }
+  }
+
+  void declareWinner() {
+    UnityEngine.SceneManagement.SceneManager.LoadScene("WinnerScene");
   }
 }
