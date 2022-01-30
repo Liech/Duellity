@@ -10,7 +10,10 @@ public class GameStateSingleton : MonoBehaviour {
   public GameObject       GUI = null;
   public GameObject       RespawnArea;
   public GameObject       PlayerUI;
-
+  public GameObject       Ball;
+  public List<Mesh>       Models;
+  public int              AmountBalls = 8;
+ 
 
   private void Awake() {
     instance=this;
@@ -20,6 +23,12 @@ public class GameStateSingleton : MonoBehaviour {
     instance=this;
     if(GUI) {
       GUI=Instantiate(GUI);
+    }
+    for(int i = 0;i <AmountBalls+1;i++) {
+      Vector2 point = getRandomLocation();
+      var ball = Instantiate(Ball);
+      ball.transform.position=new Vector3(point.x,point.y, 0);
+      ball.GetComponent<Magnetic>().MagnetType = (i<AmountBalls/2)?MagneticType.Blue: MagneticType.Red;
     }
   }
 
@@ -43,5 +52,22 @@ public class GameStateSingleton : MonoBehaviour {
     info.GUI=newUI;
     newUI.transform.Find("HitCount").GetComponent<UnityEngine.UI.Text>().color=info.clr;
     return Players.Count-1;
+  }
+
+  public Vector2 getRandomLocation() {
+    var area = GameStateSingleton.instance.RespawnArea;
+    if(!area)
+      return new Vector2(0,0);
+    var poly = area.GetComponent<PolygonCollider2D>();
+
+    for(int tries = 100;tries>0;tries--) {
+      float x = poly.bounds.min.x + Random.value * poly.bounds.size.x;
+      float y = poly.bounds.min.y + Random.value * poly.bounds.size.y;
+      Vector2 point = new Vector2(x,y);
+      if(poly.OverlapPoint(point)) {
+        return point;
+      }
+    }
+    return new Vector2(0, 0);
   }
 }

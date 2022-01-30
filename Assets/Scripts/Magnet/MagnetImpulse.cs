@@ -56,8 +56,10 @@ public class MagnetImpulse : MonoBehaviour
       float speed = body.velocity.magnitude * impulseFactor + impulseAdd;
       var newVel = reflect * reflectPercentage * speed + directPercentage * speed * dir;
       obj.GetComponent<Rigidbody2D>().velocity=newVel*magneticDir;
+      var freeze = obj.GetComponent<MomentumFreeze>();
+      if(freeze)
+        freeze.doFreeze();
     }
-
   }
 
   IEnumerator cooldown() {
