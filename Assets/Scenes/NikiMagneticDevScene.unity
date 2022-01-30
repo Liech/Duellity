@@ -718,6 +718,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 704534079481478694, guid: 166f7556796a73940bb0ecc2a82bcba6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 704534079481478694, guid: 166f7556796a73940bb0ecc2a82bcba6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 704534079481478694, guid: 166f7556796a73940bb0ecc2a82bcba6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.76
+      objectReference: {fileID: 0}
     - target: {fileID: 1336234867084203033, guid: 166f7556796a73940bb0ecc2a82bcba6, type: 3}
       propertyPath: m_Name
       value: Arena
@@ -765,6 +777,18 @@ PrefabInstance:
     - target: {fileID: 3202146083075700026, guid: 166f7556796a73940bb0ecc2a82bcba6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3566879557478308863, guid: 166f7556796a73940bb0ecc2a82bcba6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3566879557478308863, guid: 166f7556796a73940bb0ecc2a82bcba6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 3566879557478308863, guid: 166f7556796a73940bb0ecc2a82bcba6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.12
       objectReference: {fileID: 0}
     - target: {fileID: 6483418996928522595, guid: 166f7556796a73940bb0ecc2a82bcba6, type: 3}
       propertyPath: m_LocalScale.x
