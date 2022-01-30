@@ -2,11 +2,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
 public class PlayerBehavior : MonoBehaviour
 {
     private Rigidbody2D _riggidRigidbody2D;
-    private Animator _animator;
+    public Animator _animator;
 
     public float speed = 12.0f;
     public float turnSmoothTime = 0.1f;
@@ -20,7 +19,6 @@ public class PlayerBehavior : MonoBehaviour
     private void Awake()
     {
         _riggidRigidbody2D = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
         //_controls = new MasterInput();
         //_controls.Player.Move.started += context => _playerInputDirection = context.ReadValue<Vector2>();
         //_controls.Player.Move.performed += context => _playerInputDirection = context.ReadValue<Vector2>();
@@ -33,7 +31,8 @@ public class PlayerBehavior : MonoBehaviour
         MovePlayer(_playerInputDirection);
     }
 
-  public void OnMove(UnityEngine.InputSystem.InputAction.CallbackContext ctx) {
+    public void OnMove(InputAction.CallbackContext ctx)
+    {
     _playerInputDirection = ctx.ReadValue<Vector2>();
   }
 
@@ -57,12 +56,12 @@ public class PlayerBehavior : MonoBehaviour
             var velocityY = Vector3.Dot(motion.normalized, transform.forward);
             var velocityX = Vector3.Dot(motion.normalized, transform.right);
 
-            _animator.SetFloat("VelocityY", velocityY, 0.1f, Time.deltaTime);
-            _animator.SetFloat("VelocityX", velocityX, 0.1f, Time.deltaTime);
+            _animator.SetFloat("velocity", unnormalized.magnitude, 0.05f, Time.deltaTime);
         }
         else
         {
             _riggidRigidbody2D.velocity = Vector2.zero;
+            _animator.SetFloat("velocity", 0, 0.05f, Time.deltaTime);
         }
     }
 
