@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c10601a3ccaf774fa26dcb33cb0a8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStrength: 12.46
+  MaxStrength: 8
   MinStrength: 0.65
   MaxRange: 9.53
   DrawGizmo: 1
@@ -475,8 +475,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 1
-  Strength: 100
-  Duration: 0.1
+  Strength: 30
+  Duration: 0.3
   TimeSinceImpulse: 0
 --- !u!114 &-7671058962820109257
 MonoBehaviour:
