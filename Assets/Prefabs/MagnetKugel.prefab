@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3cb7c7821688fb40a26c2ce3e838a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 70
+  MaxSpeed: 60
   MinSpeed: 0
 --- !u!114 &6133489436781462504
 MonoBehaviour:
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minFreezeDuration: 0.1
-  maxFreezeDuration: 0.3
+  maxFreezeDuration: 0.25
   freezeDuration: 0.1
   freezeThreshold: 3
   freezeDurationFactor:

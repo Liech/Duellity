@@ -87,7 +87,7 @@ MonoBehaviour:
   PlayerUI: {fileID: 8415239057138632529, guid: 353c6b167b9260a408971536ce915b62, type: 3}
   Ball: {fileID: 900911992734925372, guid: 9b6d7ec681ee37946bff793368d41b94, type: 3}
   Models: []
-  AmountBalls: 8
+  AmountBalls: 9
   Powerups:
   - {fileID: 303232109370073513, guid: 54c368bd3d2600048aba181db2424507, type: 3}
   SmokeEffect: {fileID: 8720926833848393409, guid: 3b667c7f1d43c1843a9ff0f9b861e062, type: 3}
