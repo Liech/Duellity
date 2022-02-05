@@ -13,5 +13,12 @@ public class Respawner : MonoBehaviour
   }
   private void respawnHere(Vector2 v) {
     transform.position=v;
+    if(GameStateSingleton.instance.RespawnEffect) {
+      var obj = Instantiate(GameStateSingleton.instance.RespawnEffect);
+      obj.transform.position=v;
+    }
+    if(GetComponent<GetCollisionDamage>()) {
+      GetComponent<GetCollisionDamage>().respawn();
+    }
   }
 }

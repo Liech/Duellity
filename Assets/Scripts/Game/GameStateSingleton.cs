@@ -16,6 +16,7 @@ public class GameStateSingleton : MonoBehaviour {
   public List<GameObject> Powerups = new List<GameObject>();
   public GameObject       SmokeEffect;
   public GameObject       SparkEffect;
+  public GameObject       RespawnEffect;
   public int              MaxAmountPowerups = 2;
   public float            PowerupCooldownMin = 5;
   public float            PowerupCooldownRandom = 3;

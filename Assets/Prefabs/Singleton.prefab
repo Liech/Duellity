@@ -92,6 +92,7 @@ MonoBehaviour:
   - {fileID: 303232109370073513, guid: 54c368bd3d2600048aba181db2424507, type: 3}
   SmokeEffect: {fileID: 8720926833848393409, guid: 3b667c7f1d43c1843a9ff0f9b861e062, type: 3}
   SparkEffect: {fileID: 7679879883460907876, guid: 34f8d4f9ce603094db6be92f29eb94bc, type: 3}
+  RespawnEffect: {fileID: 2357089396792561170, guid: 98a70426c0fe5a6478519d5d0246eae1, type: 3}
   MaxAmountPowerups: 2
   PowerupCooldownMin: 5
   PowerupCooldownRandom: 3
